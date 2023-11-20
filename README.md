@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# URL Shortener Service (Backend)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+This URL Shortener Service is a robust and scalable backend system designed for efficient URL management. It provides functionalities for shortening long URLs, managing URL histories, and redirecting short URLs to their original destinations. This project uses the MERN stack, focusing on MongoDB, Express.js, and Node.js for the backend.
 
-## Available Scripts
+## Features
+- **URL Shortening**: Converts long URLs into short, manageable links.
+- **Custom URL Option**: Users can create custom short URLs.
+- **User History**: Track and retrieve the history of URLs shortened by a user.
+- **Tier-based Rate Limiting**: Implements different request limits for different user tiers.
+- **Redirecting Short URLs**: Short URLs effectively redirect to their original long URLs.
 
-In the project directory, you can run:
+## Tech Stack
+- **MongoDB**: NoSQL database to store URL and user data.
+- **Express.js and Node.js**: For creating the server and handling API requests.
+- **Mongoose**: MongoDB object modeling for Node.js.
+- **Additional Libraries**: `dotenv` for environment variables, `bcryptjs` for password hashing, `jsonwebtoken` for handling JWTs, `express-rate-limit` for rate limiting.
 
-### `npm start`
+## Folder Structure
+/url-shortener-backend\
+|-- /node_modules\
+|-- /src\
+| |-- /config\
+| |-- /controllers\
+| | |-- urlController.js\
+| | | -- userController.js\ 
+| |-- /models \
+| | |-- Url.js\
+| | | -- User.js\
+| |-- /routes\
+| | |-- urlRoutes.js\
+| | | -- userRoutes.js\
+| |-- /middleware\
+| |-- /utils\
+| -- app.js\
+|-- .env\
+|-- .gitignore\
+|-- package.json\
+|-- package-lock.json\
+-- README.md\
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## API Endpoints
+- **POST `/api/urls/shorten`**: Shorten a long URL.
+- **GET `/api/urls/:shortUrl`**: Redirect to the original URL from a short URL.
+- **GET `/api/users/:userId/history`**: Retrieve the history of URLs shortened by a user.
+- **(Additional endpoints for user authentication and custom URL functionality)**
 
-### `npm test`
+## Approach
+- **Modular Design**: Separation of concerns achieved through a structured folder layout.
+- **Scalability**: Database schema and API design cater to scaling needs.
+- **Security and Rate Limiting**: Implementation of basic security practices and tier-based rate limiting for API requests.
+- **User-Friendly Features**: Custom URL option and easy retrieval of user URL history.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Contributing
+Contributions to enhance the project are welcome. Please follow these steps:
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Make your changes.
+4. Commit your changes (`git commit -am 'Add some feature'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Create a new Pull Request.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
